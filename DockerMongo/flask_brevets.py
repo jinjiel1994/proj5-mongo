@@ -5,6 +5,7 @@ Replacement for RUSA ACP brevet time calculator
 """
 
 import flask
+import os
 from flask import request, Flask, redirect, url_for, render_template, abort
 import arrow  # Replacement for datetime, based on moment.js
 import acp_times  # Brevet time calculations
@@ -19,8 +20,8 @@ app = flask.Flask(__name__)
 CONFIG = config.configuration()
 app.secret_key = CONFIG.SECRET_KEY
 
-#os.environ['DB_PORT_27017_TCP_ADDR'], 27017
-client = MongoClient("localhost")
+
+client = MongoClient(os.environ['DB_PORT_27017_TCP_ADDR'], 27017)
 db = client.time
 
 ###

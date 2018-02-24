@@ -1,10 +1,10 @@
 web:
   build: .
-  command: python -u app.py
+  command: python -u flask_brevets.py
   ports:
     - "5000:5000"
   volumes:
-    - .:/todo
+    - .:/brevets
   links:
     - db
 db:
